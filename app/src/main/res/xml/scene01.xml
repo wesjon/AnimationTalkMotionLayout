@@ -15,7 +15,7 @@
     <Transition
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@id/start"
-        app:duration="700"
+        app:duration="250"
         app:motionInterpolator="easeInOut">
 
         <OnClick
@@ -24,45 +24,63 @@
 
         <KeyFrameSet>
             <KeyPosition
-                app:framePosition="30"
+                app:framePosition="60"
                 app:keyPositionType="pathRelative"
-                app:motionTarget="@id/square"
-                app:percentX="-.3" />
+                app:motionTarget="@id/mini_fab1"
+                app:percentWidth="0"
+                app:percentX="0"
+                app:percentY="0" />
+
+            <KeyPosition
+                app:framePosition="40"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/mini_fab2"
+                app:percentWidth="0"
+                app:percentX="0"
+                app:percentY="0" />
+
+            <KeyPosition
+                app:framePosition="20"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/mini_fab3"
+                app:percentWidth="0"
+                app:percentX="0"
+                app:percentY="0" />
         </KeyFrameSet>
+
     </Transition>
 
-    <ConstraintSet android:id="@+id/start">
-        <Constraint
-            android:id="@+id/square"
-            android:layout_width="50dp"
-            android:layout_height="50dp">
-            <Layout
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <CustomAttribute
-                app:attributeName="backgroundColor"
-                app:customColorValue="@color/colorPrimary" />
-        </Constraint>
-    </ConstraintSet>
+    <ConstraintSet android:id="@+id/start" />
 
     <ConstraintSet
         android:id="@+id/end"
         app:deriveConstraintsFrom="@id/start">
-        <Constraint android:id="@+id/square">
-            <Layout
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
 
-            <CustomAttribute
-                app:attributeName="backgroundColor"
-                app:customColorValue="@color/colorAccent" />
+        <Constraint android:id="@id/mini_fab1">
+            <Layout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintCircle="@id/square"
+                app:layout_constraintCircleAngle="-80"
+                app:layout_constraintCircleRadius="120dp" />
+        </Constraint>
+
+        <Constraint android:id="@id/mini_fab2">
+            <Layout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintCircle="@id/square"
+                app:layout_constraintCircleAngle="-40"
+                app:layout_constraintCircleRadius="120dp" />
+        </Constraint>
+
+        <Constraint android:id="@id/mini_fab3">
+            <Layout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintCircle="@id/square"
+                app:layout_constraintCircleAngle="0"
+                app:layout_constraintCircleRadius="120dp" />
         </Constraint>
 
     </ConstraintSet>
