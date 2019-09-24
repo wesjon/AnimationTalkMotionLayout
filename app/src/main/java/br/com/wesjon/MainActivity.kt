@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupUpExampleList() {
         sample_list.adapter = AnimationSampleAdapter(
             object : AnimationSampleListener {
-                override fun onClick(animationSample: AnimationSample) {
+                override fun onClick(animationSample: AnimationSamples) {
                     startActivity(
                         AnimationCanvasActivity.getIntent(
                             this@MainActivity,
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         ).apply {
-            submitList(AnimationSample.values().toList())
+            submitList(AnimationSamples.values().toList())
         }
     }
 }

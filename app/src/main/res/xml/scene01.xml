@@ -2,32 +2,23 @@
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--    EXAMPLE 1 -->
-    <!--    CRIAR TRANSITION -->
-    <!--    CRIAR CONSTRAINT SETS START E END -->
-    <!--    CUSTOMIZAR TAMANHO NO ESTADO FINAL -->
-    <!--    BUG CONSTRAINTS IMPORT ALL -->
-    <!--    ADICIONAR VARIACAO DE COR  -->
-
-    <!--    EXAMPLE 2 -->
-    <!--    ADICIONAR KEYFRAME PERCENTX -.3, FRAME 30-->
+<!-- Angles/delaykeyframe: fab1: -80/60, fab2: -40/40, fab3: 0/20 -->
 
     <Transition
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@id/start"
-        app:duration="250"
-        app:motionInterpolator="easeInOut">
+        app:duration="300"
+        app:motionInterpolator="easeOut">
 
         <OnClick
             app:clickAction="toggle"
-            app:targetId="@id/square" />
+            app:targetId="@id/fab" />
 
         <KeyFrameSet>
             <KeyPosition
                 app:framePosition="60"
                 app:keyPositionType="pathRelative"
                 app:motionTarget="@id/mini_fab1"
-                app:percentWidth="0"
                 app:percentX="0"
                 app:percentY="0" />
 
@@ -35,7 +26,6 @@
                 app:framePosition="40"
                 app:keyPositionType="pathRelative"
                 app:motionTarget="@id/mini_fab2"
-                app:percentWidth="0"
                 app:percentX="0"
                 app:percentY="0" />
 
@@ -43,7 +33,6 @@
                 app:framePosition="20"
                 app:keyPositionType="pathRelative"
                 app:motionTarget="@id/mini_fab3"
-                app:percentWidth="0"
                 app:percentX="0"
                 app:percentY="0" />
         </KeyFrameSet>
@@ -58,27 +47,27 @@
 
         <Constraint android:id="@id/mini_fab1">
             <Layout
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:layout_constraintCircle="@id/square"
+                android:layout_width="@dimen/mini_fab_size"
+                android:layout_height="@dimen/mini_fab_size"
+                app:layout_constraintCircle="@id/fab"
                 app:layout_constraintCircleAngle="-80"
                 app:layout_constraintCircleRadius="120dp" />
         </Constraint>
 
         <Constraint android:id="@id/mini_fab2">
             <Layout
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:layout_constraintCircle="@id/square"
+                android:layout_width="@dimen/mini_fab_size"
+                android:layout_height="@dimen/mini_fab_size"
+                app:layout_constraintCircle="@id/fab"
                 app:layout_constraintCircleAngle="-40"
                 app:layout_constraintCircleRadius="120dp" />
         </Constraint>
 
         <Constraint android:id="@id/mini_fab3">
             <Layout
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:layout_constraintCircle="@id/square"
+                android:layout_width="@dimen/mini_fab_size"
+                android:layout_height="@dimen/mini_fab_size"
+                app:layout_constraintCircle="@id/fab"
                 app:layout_constraintCircleAngle="0"
                 app:layout_constraintCircleRadius="120dp" />
         </Constraint>

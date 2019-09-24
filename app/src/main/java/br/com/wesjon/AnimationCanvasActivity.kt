@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import br.com.wesjon.animations.Example01_GrowingCircleFragment
 
 class AnimationCanvasActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,11 +16,7 @@ class AnimationCanvasActivity : FragmentActivity() {
 
     private fun pickAnimation() {
         val animationIndex = intent.getIntExtra(ANIMATION_INDEX_KEY, 0)
-        when (AnimationSample.values()[animationIndex]) {
-            AnimationSample.CLASSICAL_OBJECT_ANIMATOR -> replaceFragment(
-                Example01_GrowingCircleFragment()
-            )
-        }
+        replaceFragment(AnimationSamples.values()[animationIndex].getFragmentForAnimation())
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -32,10 +27,10 @@ class AnimationCanvasActivity : FragmentActivity() {
 
     companion object {
         private const val ANIMATION_INDEX_KEY = "ANIMATION_INDEX_KEY"
-        fun getIntent(context: Context, animationSample: AnimationSample): Intent {
+        fun getIntent(context: Context, animationSample: AnimationSamples): Intent {
             return Intent(context, AnimationCanvasActivity::class.java).apply {
                 putExtras(
-                    bundleOf(ANIMATION_INDEX_KEY to AnimationSample.valueOf(animationSample.name).ordinal)
+                    bundleOf(ANIMATION_INDEX_KEY to AnimationSamples.valueOf(animationSample.name).ordinal)
                 )
             }
         }
