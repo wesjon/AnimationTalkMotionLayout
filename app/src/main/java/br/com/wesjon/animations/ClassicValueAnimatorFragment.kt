@@ -8,10 +8,12 @@ import br.com.wesjon.R
 import kotlinx.android.synthetic.main.fragment_classic_value_animator.*
 
 class ClassicValueAnimatorFragment : Fragment(R.layout.fragment_classic_value_animator) {
+    private lateinit var valueAnimator: ValueAnimator
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ValueAnimator.ofInt(0, 100).apply {
+        valueAnimator = ValueAnimator.ofInt(0, 100).apply {
             duration = 2000
             addUpdateListener { valueAnimator ->
                 display.text = "${valueAnimator.animatedValue}"
@@ -19,5 +21,11 @@ class ClassicValueAnimatorFragment : Fragment(R.layout.fragment_classic_value_an
 
             start()
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        valueAnimator.cancel()
     }
 }

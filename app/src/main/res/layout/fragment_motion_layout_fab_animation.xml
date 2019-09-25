@@ -4,8 +4,8 @@
     android:id="@+id/motion_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/default_padding"
-    app:layoutDescription="@xml/scene01">
+    app:layoutDescription="@xml/scene_fab"
+    android:padding="@dimen/default_padding">
 
     <View
         android:id="@+id/mini_fab1"

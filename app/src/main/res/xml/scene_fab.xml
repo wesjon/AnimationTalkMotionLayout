@@ -2,18 +2,14 @@
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!-- Angles/delaykeyframe: fab1: -80/60, fab2: -40/40, fab3: 0/20 -->
-
     <Transition
-        app:constraintSetEnd="@id/end"
-        app:constraintSetStart="@id/start"
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start"
         app:duration="300"
         app:motionInterpolator="easeOut">
-
         <OnClick
             app:clickAction="toggle"
             app:targetId="@id/fab" />
-
         <KeyFrameSet>
             <KeyPosition
                 app:framePosition="60"
@@ -21,14 +17,12 @@
                 app:motionTarget="@id/mini_fab1"
                 app:percentX="0"
                 app:percentY="0" />
-
             <KeyPosition
                 app:framePosition="40"
                 app:keyPositionType="pathRelative"
                 app:motionTarget="@id/mini_fab2"
                 app:percentX="0"
                 app:percentY="0" />
-
             <KeyPosition
                 app:framePosition="20"
                 app:keyPositionType="pathRelative"
@@ -38,14 +32,10 @@
         </KeyFrameSet>
 
     </Transition>
-
     <ConstraintSet android:id="@+id/start" />
 
-    <ConstraintSet
-        android:id="@+id/end"
-        app:deriveConstraintsFrom="@id/start">
-
-        <Constraint android:id="@id/mini_fab1">
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@+id/mini_fab1">
             <Layout
                 android:layout_width="@dimen/mini_fab_size"
                 android:layout_height="@dimen/mini_fab_size"
@@ -53,8 +43,7 @@
                 app:layout_constraintCircleAngle="-80"
                 app:layout_constraintCircleRadius="120dp" />
         </Constraint>
-
-        <Constraint android:id="@id/mini_fab2">
+        <Constraint android:id="@+id/mini_fab2">
             <Layout
                 android:layout_width="@dimen/mini_fab_size"
                 android:layout_height="@dimen/mini_fab_size"
@@ -62,8 +51,7 @@
                 app:layout_constraintCircleAngle="-40"
                 app:layout_constraintCircleRadius="120dp" />
         </Constraint>
-
-        <Constraint android:id="@id/mini_fab3">
+        <Constraint android:id="@+id/mini_fab3">
             <Layout
                 android:layout_width="@dimen/mini_fab_size"
                 android:layout_height="@dimen/mini_fab_size"
@@ -71,6 +59,5 @@
                 app:layout_constraintCircleAngle="0"
                 app:layout_constraintCircleRadius="120dp" />
         </Constraint>
-
     </ConstraintSet>
 </MotionScene>

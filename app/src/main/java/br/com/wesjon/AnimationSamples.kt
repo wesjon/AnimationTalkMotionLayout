@@ -1,10 +1,7 @@
 package br.com.wesjon
 
 import androidx.recyclerview.widget.DiffUtil
-import br.com.wesjon.animations.ClassicObjectAnimatorFragment
-import br.com.wesjon.animations.ClassicValueAnimatorFragment
-import br.com.wesjon.animations.ClassicViewPropertyAnimationFragment
-import br.com.wesjon.animations.MotionLayoutFabAnimation
+import br.com.wesjon.animations.*
 
 enum class AnimationSamples(
     val title: String,
@@ -21,20 +18,32 @@ enum class AnimationSamples(
     ),
 
     CLASSICAL_VIEW_PROPERTY_ANIMATION(
-        "Clasic: ViewPropertyAnimation",
+        "Classic: ViewPropertyAnimation",
         "Api que permite animar propriedades de views sem usar reflection"
     ),
 
-    GROWING_SQUARE_MOTION_LAYOUT(
-        "MotionLayout: Playground",
-        "-"
+    MOTION_LAYOUT_MOVING_SQUARE_ANIMATION(
+        "MotionLayout: Moving square animation",
+        "Faz uma translação do quadro do início ao fim da tela"
+    ),
+
+    MOTION_LAYOUT_DRAG_MOVE_SQUARE_ANIMATION(
+        "MotionLayout: Drag square animation",
+        "Animação iterativa para fazer drag de um quadrado na tela"
+    ),
+
+    MOTION_LAYOUT_FAB_ANIMATION_SAMPLE(
+        "MotionLayout: Fab animation",
+        "Exemplo usando a API MotionLayout para criar uma animação de fab"
     );
 
     fun getFragmentForAnimation() = when (this) {
         CLASSICAL_OBJECT_ANIMATOR -> ClassicObjectAnimatorFragment()
         CLASSICAL_VALUE_ANIMATOR -> ClassicValueAnimatorFragment()
         CLASSICAL_VIEW_PROPERTY_ANIMATION -> ClassicViewPropertyAnimationFragment()
-        GROWING_SQUARE_MOTION_LAYOUT -> MotionLayoutFabAnimation()
+        MOTION_LAYOUT_FAB_ANIMATION_SAMPLE -> MotionLayoutFabAnimationFragment()
+        MOTION_LAYOUT_DRAG_MOVE_SQUARE_ANIMATION -> MotionLayoutDragAnimationFragment()
+        MOTION_LAYOUT_MOVING_SQUARE_ANIMATION -> MotionLayoutMovingSquareAnimationFragment()
     }
 
     companion object {

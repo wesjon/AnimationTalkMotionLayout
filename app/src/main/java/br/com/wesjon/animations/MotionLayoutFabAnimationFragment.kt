@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import br.com.wesjon.R
 
-class MotionLayoutFabAnimation : Fragment(R.layout.fragment_motion_layout_fab_animation) {
+class MotionLayoutFabAnimationFragment : Fragment(R.layout.fragment_motion_layout_fab_animation) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

@@ -5,13 +5,14 @@
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/default_padding">
+    android:padding="@dimen/default_padding">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorPrimaryDark"
         tools:text="@tools:sample/lorem" />
 
     <TextView
