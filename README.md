@@ -1,3 +1,3 @@
 # AnimationTalkMotionLayout
 
-![develop](https://github.com/wesjon/AnimationTalkMotionLayout/workflows/android.yml/badge.svg)
+https://github.com/wesjon/AnimationTalkMotionLayout/workflows/Android/badge.svg
