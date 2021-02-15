@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_animation_sample.view.*
+import br.com.wesjon.databinding.ItemAnimationSampleBinding
 
 class AnimationSampleAdapter(private val listener: AnimationSampleListener) :
     ListAdapter<AnimationSamples, AnimationSampleAdapter.ViewHolder>(AnimationSamples.DIFF_UTIL_CALLBACK) {
@@ -30,6 +30,8 @@ class AnimationSampleAdapter(private val listener: AnimationSampleListener) :
     ) :
         RecyclerView.ViewHolder(view) {
 
+        private val binding = ItemAnimationSampleBinding.bind(view)
+
         init {
             itemView.setOnClickListener { v ->
                 val viewTag = v.tag
@@ -42,8 +44,8 @@ class AnimationSampleAdapter(private val listener: AnimationSampleListener) :
         fun bind(animationSample: AnimationSamples) {
             itemView.tag = animationSample
 
-            itemView.title.text = animationSample.title
-            itemView.description.text = animationSample.description
+            binding.title.text = animationSample.title
+            binding.description.text = animationSample.description
         }
     }
 }
